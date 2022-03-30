@@ -40,8 +40,7 @@ public class ChainTests {
                 .build()) {
             wsProvider.connect().get(WAIT_TIMEOUT, TimeUnit.SECONDS);
 
-            val sectionFactory = new RpcGeneratedSectionFactory();
-            val rpcSection = sectionFactory.create(Chain.class, wsProvider);
+            val rpcSection = RpcGeneratedSectionFactory.create(Chain.class, wsProvider);
 
             val result = rpcSection.getFinalizedHead().get(WAIT_TIMEOUT, TimeUnit.SECONDS);
 
@@ -57,8 +56,7 @@ public class ChainTests {
                 .build()) {
             wsProvider.connect().get(WAIT_TIMEOUT, TimeUnit.SECONDS);
 
-            val sectionFactory = new RpcGeneratedSectionFactory();
-            val rpcSection = sectionFactory.create(Chain.class, wsProvider);
+            val rpcSection = RpcGeneratedSectionFactory.create(Chain.class, wsProvider);
 
             val blockCount = new AtomicInteger(0);
             val blockHash = new AtomicReference<BlockHash>(null);
@@ -91,8 +89,7 @@ public class ChainTests {
                 .build()) {
             wsProvider.connect().get(WAIT_TIMEOUT, TimeUnit.SECONDS);
 
-            val sectionFactory = new RpcGeneratedSectionFactory();
-            val rpcSection = sectionFactory.create(Chain.class, wsProvider);
+            val rpcSection = RpcGeneratedSectionFactory.create(Chain.class, wsProvider);
 
             val result = rpcSection.getBlockHash(0).get(WAIT_TIMEOUT, TimeUnit.SECONDS);
 
@@ -108,8 +105,7 @@ public class ChainTests {
                 .build()) {
             wsProvider.connect().get(WAIT_TIMEOUT, TimeUnit.SECONDS);
 
-            val sectionFactory = new RpcGeneratedSectionFactory();
-            Chain rpcSection = sectionFactory.create(Chain.class, wsProvider);
+            Chain rpcSection = RpcGeneratedSectionFactory.create(Chain.class, wsProvider);
 
             val height = new AtomicInteger(0);
             rpcSection.subscribeNewHeads((e, header) -> {

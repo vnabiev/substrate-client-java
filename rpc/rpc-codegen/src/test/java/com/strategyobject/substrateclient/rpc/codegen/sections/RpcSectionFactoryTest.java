@@ -26,8 +26,7 @@ public class RpcSectionFactoryTest {
         when(provider.send(anyString(), anyList()))
                 .thenReturn(sendFuture);
 
-        val factory = new RpcGeneratedSectionFactory();
-        val rpcSection = factory.create(TestSection.class, provider);
+        val rpcSection = RpcGeneratedSectionFactory.create(TestSection.class, provider);
 
         val actual = rpcSection.doNothing("some").get();
 
